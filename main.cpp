@@ -36,38 +36,38 @@ Sub Object 1: Steering Wheel
     Name 4 things you'll find on the:    Steering Wheel
         1) paddle shifters
         2) 'cruise control' controls
-        3) 
-        4) 
+        3) car horn
+        4) volume control buttons
     Name 2 things you can do with the:   Steering Wheel
         1) adjust cruise control settings.
-        2)
+        2) toggle car horn
         
 Sub Object 2: Instrument Cluster
     Name 4 things you'll find on the:   Instrument Cluster
-        1)
-        2)
-        3)
-        4)
+        1) speedometer
+        2) fuel gauge
+        3) odometer
+        4) gear shift display
     Name 3 things you can do with the:   Instrument Cluster
-        1)
-        2)
-        3)
+        1) observe fuel level
+        2) observe speed of vehicle
+        3) check if car is in parking or not
     
 Sub Object 3: Environment Controls
     Name 3 things you'll find on the:    Environment Controls
-        1)
-        2)
-        3)
+        1) Air conditioning on/off switch
+        2) Temperature control wheel
+        3) Fan speed control wheel
     Name 3 things you can do with the:   Environment Controls
-        1)
-        2)
-        3)
+        1) Toggle on/off air conditioner
+        2) Increase/decrease fan speed
+        3) Increase/decrease temperature
 
 Sub Object 4: Infotainment System
     Name 3 things you'll find on the:    Infotainment System
-        1)
-        2)
-        3)
+        1) Number pad
+        2) Media control buttons
+        3) 
     Name 3 things you can do with the:   Infotainment System
         1)
         2)
