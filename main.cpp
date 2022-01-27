@@ -67,20 +67,20 @@ Sub Object 4: Infotainment System
     Name 3 things you'll find on the:    Infotainment System
         1) Number pad
         2) Media control buttons
-        3) 
+        3) Disk drive
     Name 3 things you can do with the:   Infotainment System
-        1)
-        2)
-        3)
+        1) Insert disk drive
+        2) Play/pause music on car stereo
+        3) Input phone number
 
 Sub Object 5: Seat 
     Name 3 things you'll find on the:    Seat
-        1)
-        2)
-        3)
+        1) Seat recliner setting
+        2) Window switch
+        3) Glove compartment
     Name 2 things you can do with the:   Seat
-        1)
-        2)
+        1) Recline seat forward/backward
+        2) Roll window up/down
 */
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
