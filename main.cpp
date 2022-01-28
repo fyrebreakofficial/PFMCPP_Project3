@@ -57,59 +57,59 @@ Thing: Car Wash
  */
 
 /*
-Thing 1)
+Thing 1) Smartphone
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Size of screen
+    2) Length of battery life
+    3) Weight of phone
+    4) Data storage capacity
+    5) Time taken to charge to full battery
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Make a call 
+    2) Watch video
+    3) Charge phone
  */
 
 /*
-Thing 2)
+Thing 2) Gaming laptop
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) CPU-stress benchmark score
+    2) GPU-stress benchmark score
+    3) Number of ports
+    4) Duration needed to export video
+    5) Frames-per-second in game A
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Launch game A
+    2) Export video
+    3) Connect a port
  */
 
 /*
-Thing 3)
+Thing 3) Public restroom with management
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Average number of users per week
+    2) Number of toilets
+    3) Number of urinals
+    4) Number of sinks
+    5) Volume of water used per week
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Unclog toilets
+    2) Clean facilities
+    3) Replenish soap
  */
 
 /*
-Thing 4)
+Thing 4) Military Trunk Communications Vehicle
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Number of men assigned to vehicle
+    2) Fuel level percentage of vehicle
+    3) Maximum height of antenna
+    4) Configured frequency of radio systems
+    5) Net power consumption of electronics
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Change radio frequency
+    2) Deactivate comms systems during radio silence
+    3) Jack up antenna to specified height
  */
 
 
