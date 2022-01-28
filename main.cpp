@@ -65,30 +65,13 @@ Part1 will be broken up into 5 separate steps
 */
 
 /*
-Thing 10)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-
-
-
-/*
 Thing 1) Smartphone
 5 properties:
-    1) Size of screen
-    2) Length of battery life
-    3) Weight of phone
-    4) Data storage capacity
-    5) Time taken to charge to full battery
+    1) Size of screen (float)
+    2) Length of battery life (float)
+    3) Brand of phone (std::string)
+    4) Data storage capacity (int)
+    5) Time taken to charge to full battery (int)
 3 things it can do:
     1) Make a call 
     2) Watch video
@@ -98,11 +81,11 @@ Thing 1) Smartphone
 /*
 Thing 2) Gaming laptop
 5 properties:
-    1) CPU-stress benchmark score
-    2) GPU-stress benchmark score
-    3) Number of ports
-    4) Duration needed to export video
-    5) Frames-per-second in game A
+    1) CPU-stress benchmark score (int)
+    2) GPU-stress benchmark score (int)
+    3) Number of ports (int)
+    4) Duration needed to export video (float)
+    5) Frames-per-second in game A (int)
 3 things it can do:
     1) Launch game A
     2) Export video
@@ -112,11 +95,11 @@ Thing 2) Gaming laptop
 /*
 Thing 3) Public restroom with management
 5 properties:
-    1) Average number of users per week
-    2) Number of toilets
-    3) Number of urinals
-    4) Number of sinks
-    5) Volume of water used per week
+    1) Average number of users per week (float)
+    2) Number of toilets (int)
+    3) Number of urinals (int)
+    4) Number of sinks (int)
+    5) Volume of water used per week (double)
 3 things it can do:
     1) Unclog toilets
     2) Clean facilities
@@ -126,17 +109,30 @@ Thing 3) Public restroom with management
 /*
 Thing 4) Military Trunk Communications Vehicle
 5 properties:
-    1) Number of men assigned to vehicle
-    2) Fuel level percentage of vehicle
-    3) Maximum height of antenna
-    4) Configured frequency of radio systems
-    5) Net power consumption of electronics
+    1) Number of men assigned to vehicle (int)
+    2) Fuel level percentage of vehicle (double)
+    3) Maximum height of antenna (int)
+    4) Configured frequency of radio systems (float)
+    5) Net power consumption of electronics (float)
 3 things it can do:
     1) Change radio frequency
     2) Deactivate comms systems during radio silence
     3) Jack up antenna to specified height
  */
 
+/*
+Thing 10) Assault rifle
+5 properties:
+    1) Barrel
+    2) Scope
+    3) Magazine
+    4) Bullet
+    5) Stock
+3 things it can do: 
+    1) Discharge bullet
+    2) Chamber bullet
+    3) Eject empty magazine
+ */
 
 
 /*
