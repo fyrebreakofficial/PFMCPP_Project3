@@ -80,77 +80,6 @@ Part1 will be broken up into 5 separate steps
 3) move Thing 5-9 to between your Thing 4 and Thing 10.
 */
 
-/*
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-
 
 
 /*
@@ -207,6 +136,76 @@ Thing 4) Military Trunk Communications Vehicle
     1) Change radio frequency
     2) Deactivate comms systems during radio silence
     3) Jack up antenna to specified height
+ */
+
+/*
+Thing 5) Barrel
+5 properties:
+    1) Length (inches) (float)
+    2) Bullet diameter (mm) (float)
+    3) Has adapter for muzzle attachment (bool)
+    4) Barrel material (std::string)
+    5) Barrel threading (mm) (int)
+3 things it can do:
+    1) Impart spin to bullet
+    2) Guide bullet along specified vector
+    3) Contain expanding gases to accelerate bullet
+ */
+
+/*
+Thing 6) Scope
+5 properties:
+    1) Current magnification (float)
+    2) Windage offset (arcseconds) (float)
+    3) Elevation offset (arcseconds) (float)
+    4) Parallax (ft) (float)
+    5) Is illuminated (bool)
+3 things it can do:
+    1) Provide sight picture
+    2) Illuminate sight picture
+    3) Facilitate alignment of barrel to target
+ */
+
+/*
+Thing 7) Magazine
+5 properties:
+    1) Maximum Capacity (int)
+    2) Type (extended, drum, standard) (std::string)
+    3) Material (plastic, metal) (std::string)
+    4) Caliber (float)
+    5) Current amount of bullets left (int)
+3 things it can do:
+    1) Store rounds for pewpew
+    2) Feed rounds into feeding system
+    3) Prevent loading of incorrect rounds
+ */
+
+/*
+Thing 8) Bullet
+5 properties:
+    1) Caliber (float)
+    2) Powder load (float)
+    3) Powder brand (std::string)
+    4) Bullet weight (grains) (float)
+    5) Bullet type (HP, AP, FMJ, HE) (std::string)
+3 things it can do:
+    1) Engage rifling in barrel
+    2) Accelerate when fired
+    3) Impact target downrange
+ */
+
+/*
+Thing 9) Stock
+5 properties:
+    1) Is skeletonized (bool)
+    2) Is foldable (bool)
+    3) Has cheekrest (bool)
+    4) Has sling point (bool)
+    5) Weight (g) (float)
+3 things it can do:
+    1) Increase control of recoil in gun
+    2) Toggle folded/unfolded state
+    3) Provide support to firer's head when ADS
  */
 
 /*
