@@ -201,7 +201,7 @@ Thing 1) Smartphone
     2) Watch video
     3) Charge phone
  */
-struct smartphone
+struct Smartphone
 { 
     // Dimensions of screen diagonally
     float screenSize = 5.0f;
@@ -234,7 +234,7 @@ Thing 2) Gaming laptop
     2) Export video
     3) Connect a port
  */
-struct gamingLaptop
+struct GamingLaptop
 {
     // CPU stress-test benchmark score
     int cpuScore = 8000;
@@ -247,7 +247,7 @@ struct gamingLaptop
     // Frames-per-second when running Game A
     int fpsTestScore = 100;
 
-    struct laptopBottom
+    struct LaptopBottom
     {
         // Has RGB lighting (bool)
         bool hasRGB = true;
@@ -289,7 +289,7 @@ Thing 3) Public restroom with management
     2) Clean facilities
     3) Replenish soap
  */
-struct publicRestroomWithManagement
+struct PublicRestroomWithManagement
 {
     // Average number of patrons using the toilet per week
     float averageUserNumber = 100.4f;
@@ -322,7 +322,7 @@ Thing 4) Military Trunk Communications Vehicle
     2) Deactivate comms systems during radio silence
     3) Jack up antenna to specified height
  */
-struct militaryTrunkCommsVehicle
+struct MilitaryTrunkCommsVehicle
 {
     // Number of men per detachment assigned to vehicle
     int detachmentStrength = 3;
@@ -335,7 +335,7 @@ struct militaryTrunkCommsVehicle
     // Current total power consumption of communications electronics
     float netPowerConsumption = 30.0f;
 
-    struct detachmentPersonnel
+    struct DetachmentPersonnel
     {
         // Rank of personnel
         std::string rank = "CPL";
@@ -376,7 +376,7 @@ Thing 5) Barrel
     2) Guide bullet along specified vector
     3) Contain expanding gases to accelerate bullet
  */
-struct barrel
+struct Barrel
 {
     // Length in inches
     float length = 10.0f;
@@ -409,7 +409,7 @@ Thing 6) Scope
     2) Illuminate sight picture
     3) Facilitate alignment of barrel to target
  */
-struct scope
+struct Scope
 {
     // Current magnification (float)
     float currentMagnification = 4.0f;
@@ -442,7 +442,7 @@ Thing 7) Magazine
     2) Feed rounds into feeding system
     3) Prevent loading of incorrect rounds
  */
-struct magazine
+struct Magazine
 {
     // Maximum Capacity (int)
     int maxCapacity = 30;
@@ -475,7 +475,7 @@ Thing 8) Bullet
     2) Accelerate when fired
     3) Impact target downrange
  */
-struct bullet
+struct Bullet
 {
     // Caliber (float)
     float caliber = 5.56f;
@@ -508,7 +508,7 @@ Thing 9) Stock
     2) Toggle folded/unfolded state
     3) Provide support to firer's head when ADS
  */
-struct stock
+struct Stock
 {
     // Is skeletonized (bool)
     bool isSkeletonized = false;
@@ -541,117 +541,22 @@ Thing 10) Assault rifle
     2) Chamber bullet
     3) Eject empty magazine
  */
-struct assaultRifle
+struct AssaultRifle
 { 
     // Barrel
-    struct barrel
-    {
-        // Length in inches
-        float length = 10.0f;
-        // Calibre in bullet diameter
-        float calibre = 5.56f;
-        // Has adapter for muzzle attachment
-        bool hasMuzzleThreading = true;
-        // Barrel material
-        std::string barrelMaterial = "steel";
-        // Barrel threading rating
-        int threading = 20;
-
-        // Impart spin to bullet
-        void spinBullet(int threading, float acceleration, float calibre, std::string bulletType);
-        // Guide bullet along specified vector
-        void guideBullet(float acceleration, float length);
-        // Accelerate bullet under force of expanding gases
-        void accelerateBullet(float length, float bulletWeight);
-    };
+    Barrel standardAssault;
 
     // Scope
-    struct scope
-    {
-        // Current magnification (float)
-        float currentMagnification = 4.0f;
-        // Windage offset (arcseconds) (float)
-        float windageOffset = 0.0f;
-        // Elevation offset (arcseconds) (float)
-        float elevationOffset = 0.0f;
-        // Parallax (ft) (float)
-        float parallax = 0.0f;
-        // Is illuminated (bool)
-        bool isIlluminated = true;
-
-        // Provide sight picture
-        bool provideSightPicture(float targetSize, int distance); // Returns whether target can be seen
-        // Illuminate sight picture
-        bool illuminateSightPicture(int scopeBatteryCapacity, int environmentLightLevel); // Returns whether target can be seen
-        // Facilitate alignment of barrel to target
-        bool alignmentBarrelToTarget(int elevationBarrel, int elevationTarget, int distance, float caliber); // Returns prediction of whether target can be hit
-    };
+    Scope standardSAR;
 
     // Magazine
-    struct magazine
-    {
-        // Maximum Capacity (int)
-        int maxCapacity = 30;
-        // Type (extended, drum, standard) (std::string)
-        std::string type = "standard";
-        // Material (plastic, metal) (std::string)
-        std::string material = "plastic";
-        // Caliber (float)
-        float caliber = 5.56f;
-        // Current amount of bullets left (int)
-        int currentCapacity = 30;
-
-        // Store rounds for pewpew
-        int holdRounds(int roundsLoaded, int roundsExpended); // Returns number of current rounds in capa
-        // Feed rounds into feeding system
-        int feedRounds(bool isChamberJammed);
-        // Prevent loading of incorrect rounds
-        void filterIncorrectRounds(bool isCaliberCorrect); 
-    };
+    Magazine stanagStandard;
 
     // Bullet
-    struct bullet
-    {
-        // Caliber (float)
-        float caliber = 5.56f;
-        // Powder load (int)
-        int powderLoad = 10;
-        // Powder brand (std::string)
-        std::string powderBrand = "4198";
-        // Bullet weight (grains) (float)
-        float weight = 10.0;
-        // Bullet type (HP, AP, FMJ, HE) (std::string)
-        std::string type = "FMJ";
-
-        // Engage rifling in barrel
-        void engageRifling(int threading, int acceleration);
-        // Accelerate when fired
-        int accelerateWhenFired(int powderLoad, float caliber, float barrelLength); // Returns maximum speed of bullet at end of barrel
-        // Impact target downrange
-        int impactTarget(int distance, int elevation, int speed, int mass);// Returns predicted speed of bullet when hitting target downrange
-    };
+    Bullet standard556;
 
     // Stock
-    struct stock
-    {
-        // Is skeletonized (bool)
-        bool isSkeletonized = false;
-        // Is foldable (bool)
-        bool isFoldable = true;
-        // Has cheekrest (bool)
-        bool hasCheekrest = true;
-        // Has sling point (bool)
-        bool hasSlingPoint = true;
-        // Weight (g) (float)
-        float weight = 850.48f;
-
-        // Increase control of recoil in gun
-        int increaseControlRecoil(int recoilForce, float gunWeight); // Returns percentage of recoil control increase
-        // Toggle folded/unfolded state
-        void toggleFoldedUnfolded(bool isFoldable); //
-        // Provide support to firer's head when ADS
-        void supportHeadWhenADS(bool isAiming = true, float pressureAgainstStock = 0.0f);
-    };
+    Stock bullpup;
  
     // Discharge bullet
     void dischargeBullet(bool bulletInChamber, bool isJammed);
