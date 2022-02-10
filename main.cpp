@@ -127,30 +127,40 @@ struct Person
         int stepSize();
     };
 
-    Foot LeftFoot;
-    Foot RightFoot;
+    Foot leftFoot;
+    Foot rightFoot;
     
     void run(int howFast, bool startWithLeftFoot);
     int stepForward();
     int stepSize();
 };
 
+void Person::Foot::stepForward()
+{
+    std::cout << "Imma step forward now";
+}
+
+int Person::Foot::stepSize()
+{
+    return stepCount += 1;
+}
+
 void Person::run(int runSpeed, bool startWithLeftFoot)
 {
     if(startWithLeftFoot == true)
     {
-        LeftFoot.stepForward();
-        RightFoot.stepForward();
+        
+        leftFoot.stepForward();
+        rightFoot.stepForward();
     }
     else
     { 
-        RightFoot.stepForward();
-        LeftFoot.stepForward();
+        rightFoot.stepForward();
+        leftFoot.stepForward();
     }
     
-    distanceTraveled = RightFoot.stepSize() + LeftFoot.stepSize();
-    runSpeed = distanceTraveled / (LeftFoot.stepCount + RightFoot.stepCount);
-    return;
+    distanceTraveled = rightFoot.stepSize() + leftFoot.stepSize();
+    runSpeed = distanceTraveled / (leftFoot.stepCount + rightFoot.stepCount);
 }
 
  /*
@@ -182,20 +192,17 @@ struct Smartphone
 
 float Smartphone::makeCall(float duration, float powerConsumption)
 {
-    float powerDeduction = duration * powerConsumption;
-    return powerDeduction;
+    return duration * powerConsumption;
 }
 
 float Smartphone::playVideo(int definition, float duration, float powerConsumption)
 {
-    float powerDeduction = definition * duration * powerConsumption;
-    return powerDeduction;
+    return definition * duration * powerConsumption;
 }
 
-float Smartphone:: chargeBattery(float power, int duration)
+float Smartphone::chargeBattery(float power, int duration)
 {
-    float powerIncrease = power * duration;
-    return powerIncrease;
+    return power * duration;
 }
 
 struct GamingLaptop
@@ -250,7 +257,6 @@ void GamingLaptop::LaptopBottom::inputCharacter(std::string character, bool malf
     {
         std::cout << "Hello your keyboard has broken\n";
     }
-    return;
 }
 
 bool GamingLaptop::LaptopBottom::powerWithBattery(int capacity, int consumption, float duration)
@@ -268,21 +274,17 @@ bool GamingLaptop::LaptopBottom::powerWithBattery(int capacity, int consumption,
 void GamingLaptop::launchGameA(std::string quality)
 {
     std::cout << "Launching Game A at " << quality << " settings\n";
-    return;
 }
 
 int GamingLaptop::exportTestVideo(int quality, int videoLength)
 {
-    int exportDuration;
     int gpuStrength = 0;
-    exportDuration = quality * videoLength * gpuStrength;
-    return exportDuration;
+    return quality * videoLength * gpuStrength;
 }
 
 void connectPortToExternal(std::string type, std::string device)
 {
     std::cout << "Device " << device << " detected and connected to " << type << " port.\n";
-    return;
 }
 
 struct PublicRestroomWithManagement
@@ -301,20 +303,17 @@ struct PublicRestroomWithManagement
 void PublicRestroomWithManagement::unclogToilets(int totalToilets)
 {
     std::cout << totalToilets << " toilets will be cleaned now.";
-    return;
 }
 
 void PublicRestroomWithManagement::cleanFacilities(std::string issue)
 {
     std::cout << "Order to address " << issue << " sent to manpower.\n";
-    return;
 }
 
 void PublicRestroomWithManagement::replenishSoap(float percentageSoapLeft)
 {
     float percentageToRefill = 100 * (1 - percentageSoapLeft);
     std::cout << "Order sent to refill " << percentageToRefill << "% of soap.\n";
-    return;
 }
 
 struct MilitaryTrunkCommsVehicle
@@ -354,7 +353,6 @@ void MilitaryTrunkCommsVehicle::DetachmentPersonnel::shiftSentry(int sentryDurat
     {
         std::cout << "Soldier not well enough to carry out sentry duty!";
     }
-    return;
 }
 
 void MilitaryTrunkCommsVehicle::DetachmentPersonnel::prepareForArtilleryAttack(int duration, bool isShellscrapePresent)
@@ -367,19 +365,16 @@ void MilitaryTrunkCommsVehicle::DetachmentPersonnel::prepareForArtilleryAttack(i
     {
         std::cout << "Taking cover on ground for " << duration << " minutes\n";
     }
-    return;
 }
 
 void MilitaryTrunkCommsVehicle::DetachmentPersonnel::consumeRations(int caloriesConsumed)
 {
     std::cout << "Recovered " << caloriesConsumed << " calories for soldiers on field\n";
-    return;
 }
 
 void MilitaryTrunkCommsVehicle::changeRadioFrequency(float targetFrequency)
 {
     std::cout << "Changing communications frequency to " << targetFrequency << " MHz, refighting link\n";
-    return;
 }
 
 void MilitaryTrunkCommsVehicle::deactivateComms(bool isRadioSilence, bool isDangerPresent)
@@ -399,7 +394,6 @@ void MilitaryTrunkCommsVehicle::deactivateComms(bool isRadioSilence, bool isDang
             std::cout << "Deactivating communications systems. Trunk node integrity compromised.\n";
         }
     }
-    return;
 }
 
 void MilitaryTrunkCommsVehicle::jackUpAntenna(bool isVehicleGrounded, int unitsToJackUp)
@@ -412,7 +406,6 @@ void MilitaryTrunkCommsVehicle::jackUpAntenna(bool isVehicleGrounded, int unitsT
     {
         std::cout << "Alert: Vehicle not grounded. Give command to ground vehicle before proceeding.\n";
     }
-    return;
 }
 
 
@@ -433,21 +426,18 @@ void Barrel::spinBullet(int thread, float acceleration, float bulletCaliber, std
 {
     float spinLevel = thread * acceleration * bulletCaliber;
     std::cout << spinLevel << bulletType;
-    return;
 }
 
 void Barrel::guideBullet(float acceleration, float barrelLength)
 {
     float guideScore = acceleration * barrelLength;
     std::cout << guideScore;
-    return;
 }
 
 void Barrel::accelerateBullet(float barrelLength, float bulletWeight)
 { 
     float acceleration = barrelLength * bulletWeight;
     std::cout << acceleration;
-    return;
 }
 
 struct Scope
@@ -521,8 +511,7 @@ struct Magazine
 
 int Magazine::holdRounds(int roundsLoaded, int roundsExpended)
 {
-    int roundsLeft = roundsLoaded - roundsExpended;
-    return roundsLeft;
+    return roundsLoaded - roundsExpended;
 }
 
 int Magazine::feedRounds(bool isChamberJammed)
@@ -545,7 +534,6 @@ void Magazine::filterIncorrectRounds(bool isCaliberCorrect)
     {
         std::cout << "Incorrect caliber loaded! Unable to fire.\n";
     }
-    return;
 }
 
 
@@ -566,19 +554,16 @@ void Bullet::engageRifling(int threading, int acceleration)
 {
     int riflingEngagement = threading * acceleration;
     std::cout << riflingEngagement;
-    return;
 }
 
 float Bullet::accelerateWhenFired(int powderGrain, float bulletCaliber, float barrelLength)
 {
-    float accelerationScore = powderGrain * bulletCaliber * barrelLength;
-    return accelerationScore;
+    return powderGrain * bulletCaliber * barrelLength;
 }
 
 int Bullet::impactTarget(int distance, int elevation, int speed, int mass)
 {
-    int impactScore = speed * mass / (distance * elevation);
-    return impactScore;
+    return speed * mass / (distance * elevation);
 }
 
 struct Stock
@@ -596,8 +581,7 @@ struct Stock
 
 float Stock::increaseControlRecoil(int recoilForce, float gunWeight)
 {
-    float controlScore = recoilForce + gunWeight;
-    return controlScore;
+    return recoilForce + gunWeight;
 }
 
 void Stock::toggleFoldedUnfolded(bool isStockFoldable)
@@ -618,7 +602,6 @@ void Stock::toggleFoldedUnfolded(bool isStockFoldable)
     {
         std::cout << "Unable to fold";
     }
-    return;
 }
 
 void Stock::supportHeadWhenADS(bool isAiming, float pressureAgainstStock)
@@ -632,7 +615,6 @@ void Stock::supportHeadWhenADS(bool isAiming, float pressureAgainstStock)
     {
         supportScore = 0.0f;
     }
-    return;
 }
 
 struct AssaultRifle
@@ -665,7 +647,6 @@ void AssaultRifle::dischargeBullet(bool bulletInChamber, bool isJammed)
         dischargeBullet = false;
     }
     std::cout << dischargeBullet;
-    return;
 }
 
 void AssaultRifle::chamberBullet(bool magazineLoaded, std::string bulletType)
@@ -678,7 +659,6 @@ void AssaultRifle::chamberBullet(bool magazineLoaded, std::string bulletType)
     {
         std::cout << "Magazine not loaded";
     }
-    return;
 }
 
 void AssaultRifle::ejectEmptyMagazine(bool isEjectButtonPressed, bool isMagazineEmpty)
@@ -687,7 +667,6 @@ void AssaultRifle::ejectEmptyMagazine(bool isEjectButtonPressed, bool isMagazine
     {
         std::cout << "Ejecting empty magazine";
     }
-    return;
 }
 
 /*
