@@ -127,8 +127,8 @@ struct Person
         int stepSize();
     };
 
-    Foot leftFoot;
-    Foot rightFoot;
+    Foot LeftFoot;
+    Foot RightFoot;
     
     void run(int howFast, bool startWithLeftFoot);
     int stepForward();
@@ -139,16 +139,17 @@ void Person::run(int runSpeed, bool startWithLeftFoot)
 {
     if(startWithLeftFoot == true)
     {
-        leftFoot.stepForward();
-        rightFoot.stepForward();
+        LeftFoot.stepForward();
+        RightFoot.stepForward();
     }
     else
     { 
-        rightFoot.stepForward();
-        leftFoot.stepForward();
+        RightFoot.stepForward();
+        LeftFoot.stepForward();
     }
     
-    distanceTraveled = rightFoot.stepSize() + leftFoot.stepSize();
+    distanceTraveled = RightFoot.stepSize() + LeftFoot.stepSize();
+    runSpeed = distanceTraveled / (LeftFoot.stepCount + RightFoot.stepCount);
     return;
 }
 
@@ -174,26 +175,26 @@ struct Smartphone
     int maximumStorageCapacity = 64;
     int timeChargeToFull = 2;
 
-    int makeCall(float callLength = 1.00f, float callConsumption = 3.0f);
-    int playVideo(int quality = 1080, float videoLength = 3.5f, float videoConsumption = 5.0f);
-    int chargeBattery(float chargeRate = 5.00f, int chargeDuration = 0); 
+    float makeCall(float callLength = 1.00f, float callConsumption = 3.0f);
+    float playVideo(int quality = 1080, float videoLength = 3.5f, float videoConsumption = 5.0f);
+    float chargeBattery(float chargeRate = 5.00f, int chargeDuration = 0); 
 };
 
-int Smartphone::makeCall(float duration, float powerConsumption)
+float Smartphone::makeCall(float duration, float powerConsumption)
 {
-    int powerDeduction = duration * powerConsumption;
+    float powerDeduction = duration * powerConsumption;
     return powerDeduction;
 }
 
-int Smartphone::playVideo(int definition, float duration, float powerConsumption)
+float Smartphone::playVideo(int definition, float duration, float powerConsumption)
 {
-    int powerDeduction = definition * duration * powerConsumption;
+    float powerDeduction = definition * duration * powerConsumption;
     return powerDeduction;
 }
 
-int Smartphone:: chargeBattery(float power, int duration)
+float Smartphone:: chargeBattery(float power, int duration)
 {
-    int powerIncrease = power * duration;
+    float powerIncrease = power * duration;
     return powerIncrease;
 }
 
@@ -273,7 +274,7 @@ void GamingLaptop::launchGameA(std::string quality)
 int GamingLaptop::exportTestVideo(int quality, int videoLength)
 {
     int exportDuration;
-    int gpuStrength;
+    int gpuStrength = 0;
     exportDuration = quality * videoLength * gpuStrength;
     return exportDuration;
 }
@@ -311,7 +312,7 @@ void PublicRestroomWithManagement::cleanFacilities(std::string issue)
 
 void PublicRestroomWithManagement::replenishSoap(float percentageSoapLeft)
 {
-    int percentageToRefill = 100 * (1 - percentageSoapLeft);
+    float percentageToRefill = 100 * (1 - percentageSoapLeft);
     std::cout << "Order sent to refill " << percentageToRefill << "% of soap.\n";
     return;
 }
@@ -428,19 +429,25 @@ struct Barrel
     void accelerateBullet(float length, float bulletWeight);
 };
 
-void Barrel::spinBullet(int threading, float acceleration, float calibre, std::string bulletType)
+void Barrel::spinBullet(int thread, float acceleration, float bulletCaliber, std::string bulletType)
 {
-    float spinLevel = threading * acceleration * calibre;
+    float spinLevel = thread * acceleration * bulletCaliber;
+    std::cout << spinLevel << bulletType;
+    return;
 }
 
-void Barrel::guideBullet(float acceleration, float length)
+void Barrel::guideBullet(float acceleration, float barrelLength)
 {
-    float guideScore = acceleration * length;
+    float guideScore = acceleration * barrelLength;
+    std::cout << guideScore;
+    return;
 }
 
-void Barrel::accelerateBullet(float length, float bulletWeight)
+void Barrel::accelerateBullet(float barrelLength, float bulletWeight)
 { 
-    float acceleration = length * bulletWeight;
+    float acceleration = barrelLength * bulletWeight;
+    std::cout << acceleration;
+    return;
 }
 
 struct Scope
@@ -473,16 +480,16 @@ bool Scope::provideSightPicture(float targetSize, int distance)
 
 bool Scope::illuminateSightPicture(int scopeBatteryCapacity, int environmentLightLevel)
 {
-    bool isIlluminated;
+    bool isIlluminating;
     if (scopeBatteryCapacity > 0 || environmentLightLevel > 0)
     {
-        isIlluminated = true;
+        isIlluminating = true;
     }
     else
     {
-        isIlluminated = false;
+        isIlluminating = false;
     }
-    return isIlluminated;
+    return isIlluminating;
 }
 
 bool Scope::alignmentBarrelToTarget(int elevationBarrel, int elevationTarget, int distance, float caliber)
@@ -551,19 +558,20 @@ struct Bullet
     std::string type = "FMJ";
 
     void engageRifling(int threading, int acceleration);
-    int accelerateWhenFired(int powderLoad, float caliber, float barrelLength); 
+    float accelerateWhenFired(int powderLoad, float caliber, float barrelLength); 
     int impactTarget(int distance, int elevation, int speed, int mass);
 };
 
 void Bullet::engageRifling(int threading, int acceleration)
 {
     int riflingEngagement = threading * acceleration;
+    std::cout << riflingEngagement;
     return;
 }
 
-int Bullet::accelerateWhenFired(int powderLoad, float caliber, float barrelLength)
+float Bullet::accelerateWhenFired(int powderGrain, float bulletCaliber, float barrelLength)
 {
-    float accelerationScore = powderLoad * caliber * barrelLength;
+    float accelerationScore = powderGrain * bulletCaliber * barrelLength;
     return accelerationScore;
 }
 
@@ -592,10 +600,10 @@ float Stock::increaseControlRecoil(int recoilForce, float gunWeight)
     return controlScore;
 }
 
-void Stock::toggleFoldedUnfolded(bool isFoldable)
+void Stock::toggleFoldedUnfolded(bool isStockFoldable)
 {
-    bool toggleCommand;
-    if (isFoldable == true)
+    bool toggleCommand = true;
+    if (isStockFoldable == true)
     {
         if (toggleCommand == true)
         {
@@ -649,8 +657,14 @@ void AssaultRifle::dischargeBullet(bool bulletInChamber, bool isJammed)
     bool dischargeBullet;
     if (bulletInChamber == true && isJammed == false)
     {
+        dischargeBullet = true;
         std::cout << "Bullet discharged";
     }
+    else
+    {
+        dischargeBullet = false;
+    }
+    std::cout << dischargeBullet;
     return;
 }
 
