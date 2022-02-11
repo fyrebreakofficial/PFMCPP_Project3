@@ -142,7 +142,8 @@ void Person::Foot::stepForward()
 
 int Person::Foot::stepSize()
 {
-    return stepCount += 1;
+    ++stepCount;
+    return stepCount;
 }
 
 void Person::run(int runSpeed, bool startWithLeftFoot)
@@ -235,16 +236,7 @@ struct GamingLaptop
 
 bool GamingLaptop::LaptopBottom::turnLaptopOn(bool buttonPressed, bool powerPresent)
 {
-    bool powerCommand;
-    if (buttonPressed && powerPresent)
-    {
-        powerCommand = true;
-    }
-    else
-    {
-        powerCommand = false;
-    }
-    return powerCommand;
+    return (buttonPressed && powerPresent);
 }
 
 void GamingLaptop::LaptopBottom::inputCharacter(std::string character, bool malfunction)
@@ -262,12 +254,15 @@ void GamingLaptop::LaptopBottom::inputCharacter(std::string character, bool malf
 bool GamingLaptop::LaptopBottom::powerWithBattery(int capacity, int consumption, float duration)
 {
     bool powerState;
-    while (capacity > 0)
+    if (capacity > 0)
     {
         powerState = true;
         capacity -= (consumption * duration);
     }
-    powerState = false;
+    else
+    {
+        powerState = false;
+    }
     return powerState;
 }
 
@@ -455,45 +450,17 @@ struct Scope
 
 bool Scope::provideSightPicture(float targetSize, int distance) 
 {
-    bool isVisible;
-    float calc = targetSize/distance;
-    if (calc > 100.0f)
-    {
-        isVisible = true;
-    }
-    else
-    {
-        isVisible = false;
-    }
-    return isVisible;
+    return (targetSize / distance) > 100.0f;
 }
 
 bool Scope::illuminateSightPicture(int scopeBatteryCapacity, int environmentLightLevel)
 {
-    bool isIlluminating;
-    if (scopeBatteryCapacity > 0 || environmentLightLevel > 0)
-    {
-        isIlluminating = true;
-    }
-    else
-    {
-        isIlluminating = false;
-    }
-    return isIlluminating;
+    return (scopeBatteryCapacity > 0 || environmentLightLevel > 0);
 }
 
 bool Scope::alignmentBarrelToTarget(int elevationBarrel, int elevationTarget, int distance, float caliber)
 {
-    bool isAligned;
-    if (caliber * (elevationBarrel - elevationTarget)/distance > 50)
-    {
-        isAligned = true;
-    }
-    else
-    {
-        isAligned = false;
-    }
-    return isAligned;
+    return (caliber * (elevationBarrel - elevationTarget)/distance > 50);
 }
 
 struct Magazine
@@ -516,12 +483,8 @@ int Magazine::holdRounds(int roundsLoaded, int roundsExpended)
 
 int Magazine::feedRounds(bool isChamberJammed)
 {
-    int roundInChamber;
-    if (isChamberJammed == true)
-    {
-        roundInChamber = 0;
-    }
-    else
+    int roundInChamber = 0;
+    if (!isChamberJammed)
     {
         roundInChamber = 1;
     }
@@ -636,17 +599,14 @@ struct AssaultRifle
 
 void AssaultRifle::dischargeBullet(bool bulletInChamber, bool isJammed)
 {
-    bool dischargeBullet;
     if (bulletInChamber == true && isJammed == false)
     {
-        dischargeBullet = true;
         std::cout << "Bullet discharged";
     }
     else
     {
-        dischargeBullet = false;
+        std::cout << "Bullet not discharged";
     }
-    std::cout << dischargeBullet;
 }
 
 void AssaultRifle::chamberBullet(bool magazineLoaded, std::string bulletType)
